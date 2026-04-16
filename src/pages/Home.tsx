@@ -293,13 +293,13 @@ export default function Home() {
                 <p className="text-sm text-muted-foreground mb-5">
                   Tools I use to turn raw data, ideas, and AI workflows into practical solutions.
                 </p>
-                <div className="grid gap-4 lg:grid-cols-3">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {Object.entries(groupedSkills).map(([group, groupSkills]) => (
                     <div key={group} className="rounded-2xl border border-border/50 bg-background/60 p-4">
                       <h4 className="text-base font-semibold mb-3">{group}</h4>
-                      <div className="space-y-2">
+                      <div className="grid gap-3">
                         {groupSkills.map((skill) => (
-                          <div key={skill.name} className="rounded-xl border border-border/60 bg-card/10 px-4 py-3 text-sm font-medium text-foreground">
+                          <div key={skill.name} className="w-full rounded-xl border border-border/60 bg-card/10 px-4 py-3 text-sm font-medium text-foreground">
                             {skill.name}
                           </div>
                         ))}
