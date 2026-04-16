@@ -175,6 +175,16 @@ export default function Home() {
                 {personalInfo.tagline.split('&')[1]}
               </span>
             </motion.h1>
+
+            <motion.div
+              className="inline-flex flex-wrap items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              <span>🟢</span>
+              <span>Open to Work · Available for Full-time / Internship</span>
+            </motion.div>
             
             <motion.p 
               className="text-base md:text-xl text-muted-foreground mb-8 max-w-2xl font-mono"
