@@ -4,6 +4,10 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Artifacts
+
+- **Ganesh Pawar Portfolio** (`artifacts/ganesh-portfolio`) — React + Vite recruiter-focused portfolio website at `/`. It uses Tailwind CSS, Framer Motion, local dynamic portfolio data in `src/data/portfolio.ts`, project search/filtering, dark/light toggle, SEO metadata, and a mailto-based contact form.
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces
