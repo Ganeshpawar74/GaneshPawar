@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const categories = ["All", "Data Analytics", "Machine Learning", "AI Automation"];
+const heroSignals = ["SQL", "Python", "Power BI", "FastAPI", "NLP", "n8n"];
 
 export default function Home() {
   const [filter, setFilter] = useState("All");
@@ -91,62 +92,110 @@ export default function Home() {
       <main className="container mx-auto px-4 md:px-6 pt-24 pb-16">
         
         {/* Hero Section */}
-        <section className="py-24 md:py-32 flex flex-col items-start max-w-4xl">
+        <section className="py-20 md:py-28 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Badge variant="outline" className="mb-6 px-3 py-1 text-sm border-primary/30 text-primary bg-primary/5 rounded-full">
+                <BrainCircuit className="w-4 h-4 mr-2" />
+                {personalInfo.role}
+              </Badge>
+            </motion.div>
+            
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold font-heading leading-tight mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              Hi, I'm {personalInfo.name}.<br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">
+                {personalInfo.tagline.split('&')[0]} &<br/>
+                {personalInfo.tagline.split('&')[1]}
+              </span>
+            </motion.h1>
+            
+            <motion.p 
+              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl font-mono text-sm md:text-base"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              &gt; Current role: <span className="text-primary">{typedRole}</span><span className="animate-pulse">_</span><br/>
+              &gt; Initializing datastore...<br/>
+              &gt; Loading ML models...<br/>
+              &gt; Status: Ready for impact.
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Button size="lg" className="rounded-full px-8 gap-2 glow-effect" asChild>
+                <a href="#projects">View Projects <ChevronRight className="w-4 h-4" /></a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full px-8 gap-2" asChild>
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-4 h-4" /> GitHub
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full px-8 gap-2" asChild>
+                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="w-4 h-4" /> LinkedIn
+                </a>
+              </Button>
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            className="relative hidden lg:block min-h-[460px]"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
           >
-            <Badge variant="outline" className="mb-6 px-3 py-1 text-sm border-primary/30 text-primary bg-primary/5 rounded-full">
-              <BrainCircuit className="w-4 h-4 mr-2" />
-              {personalInfo.role}
-            </Badge>
-          </motion.div>
-          
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold font-heading leading-tight mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Hi, I'm {personalInfo.name}.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">
-              {personalInfo.tagline.split('&')[0]} &<br/>
-              {personalInfo.tagline.split('&')[1]}
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl font-mono text-sm md:text-base"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            &gt; Current role: <span className="text-primary">{typedRole}</span><span className="animate-pulse">_</span><br/>
-            &gt; Initializing datastore...<br/>
-            &gt; Loading ML models...<br/>
-            &gt; Status: Ready for impact.
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-wrap gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <Button size="lg" className="rounded-full px-8 gap-2 glow-effect" asChild>
-              <a href="#projects">View Projects <ChevronRight className="w-4 h-4" /></a>
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 gap-2" asChild>
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4" /> GitHub
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 gap-2" asChild>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
-                <Linkedin className="w-4 h-4" /> LinkedIn
-              </a>
-            </Button>
+            <div className="absolute inset-0 rounded-[2rem] border border-primary/20 bg-card/30 backdrop-blur-xl shadow-2xl shadow-primary/10 overflow-hidden">
+              <motion.div
+                className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl"
+                animate={{ scale: [1, 1.18, 1], opacity: [0.45, 0.8, 0.45] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div className="absolute inset-8 rounded-[1.5rem] border border-border/50 bg-background/50 p-6">
+                <div className="flex items-center justify-between text-sm font-mono text-muted-foreground">
+                  <span>ai-workflow.ts</span>
+                  <span className="text-primary">online</span>
+                </div>
+                <div className="mt-8 space-y-4 font-mono text-sm">
+                  <div className="rounded-xl border border-border/60 bg-card/60 p-4">
+                    <span className="text-primary">01</span> Understand the business problem
+                  </div>
+                  <div className="rounded-xl border border-border/60 bg-card/60 p-4">
+                    <span className="text-primary">02</span> Analyze data and find patterns
+                  </div>
+                  <div className="rounded-xl border border-border/60 bg-card/60 p-4">
+                    <span className="text-primary">03</span> Use AI to research, automate and improve
+                  </div>
+                </div>
+              </div>
+              {heroSignals.map((signal, index) => (
+                <motion.div
+                  key={signal}
+                  className="absolute rounded-full border border-primary/30 bg-background/80 px-4 py-2 text-sm font-semibold text-foreground shadow-lg shadow-primary/10"
+                  style={{
+                    left: `${12 + (index % 3) * 29}%`,
+                    top: `${12 + Math.floor(index / 3) * 68}%`,
+                  }}
+                  animate={{ y: [0, index % 2 === 0 ? -12 : 12, 0] }}
+                  transition={{ duration: 3 + index * 0.2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {signal}
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </section>
 
