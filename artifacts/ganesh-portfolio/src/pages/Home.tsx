@@ -2,20 +2,24 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { personalInfo, projects, skills, certifications } from "@/data/portfolio";
-import { Github, Linkedin, Mail, Download, ChevronRight, Code2, Database, TerminalSquare, BrainCircuit } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ChevronRight, Code2, Database, TerminalSquare, BrainCircuit, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 const categories = ["All", "Data Analytics", "Machine Learning", "AI Automation"];
+const isUsableLink = (link?: string) => Boolean(link && link !== "#" && !link.includes("placeholder"));
+
 export default function Home() {
   const [filter, setFilter] = useState("All");
   const [query, setQuery] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const [typedRole, setTypedRole] = useState("");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const { toast } = useToast();
 
   useEffect(() => {
     const activeRole = personalInfo.roles[roleIndex % personalInfo.roles.length];
@@ -49,11 +53,27 @@ export default function Home() {
 
   const sendContact = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      toast({
+        title: "Please complete the form",
+        description: "Add your name, email, and message before sending.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const subject = encodeURIComponent(`Portfolio inquiry from ${form.name || "a recruiter"}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
     );
-    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+    toast({
+      title: "Opening email draft",
+      description: "Your message is ready to send from your email app.",
+    });
+    window.setTimeout(() => {
+      window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+      setForm({ name: "", email: "", message: "" });
+    }, 250);
   };
 
   return (
@@ -291,9 +311,15 @@ export default function Home() {
                         <Badge variant="secondary" className="bg-primary/10 text-primary text-xs">
                           {project.category}
                         </Badge>
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                          <Github className="w-5 h-5" />
-                        </a>
+                        {isUsableLink(project.github) ? (
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label={`${project.title} GitHub repository`}>
+                            <Github className="w-5 h-5" />
+                          </a>
+                        ) : (
+                          <span className="text-muted-foreground/40" title="GitHub link can be added later">
+                            <Github className="w-5 h-5" />
+                          </span>
+                        )}
                       </div>
                       <CardTitle className="font-heading text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
                     </CardHeader>
@@ -316,17 +342,62 @@ export default function Home() {
               ))}
             </AnimatePresence>
           </div>
+          {filteredProjects.length === 0 && (
+            <div className="rounded-2xl border border-border/50 bg-card/30 p-8 text-center text-muted-foreground">
+              No matching projects found. Try a different search or category.
+            </div>
+          )}
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20 border-t border-border/40 max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold font-heading mb-4">Let's Build Something</h2>
-          <p className="text-muted-foreground mb-10">
-            Currently open for new opportunities in AI & Data Engineering. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-          </p>
-          
-          <Card className="p-6 text-left border-border/50 bg-card/30">
-            <form className="space-y-4" onSubmit={sendContact}>
+        <section id="contact" className="py-20 border-t border-border/40">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-8 items-stretch">
+            <Card className="border-border/50 bg-card/30 p-6 overflow-hidden relative">
+              <div className="absolute right-0 top-0 h-36 w-36 rounded-full bg-primary/15 blur-3xl" />
+              <div className="relative">
+                <Badge variant="outline" className="mb-5 border-primary/30 text-primary bg-primary/5">
+                  Available for opportunities
+                </Badge>
+                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Let's Build Something Useful</h2>
+                <p className="text-muted-foreground leading-relaxed mb-8">
+                  Open to data analytics, AI/ML, automation, and internship or entry-level roles where I can solve real business problems with data and AI.
+                </p>
+
+                <div className="grid gap-3">
+                  <a href={`mailto:${personalInfo.email}`} className="rounded-xl border border-border/50 bg-background/40 p-4 flex items-center gap-3 hover:border-primary/50 transition-colors">
+                    <Mail className="w-5 h-5 text-primary" />
+                    <span>{personalInfo.email}</span>
+                  </a>
+                  <div className="rounded-xl border border-border/50 bg-background/40 p-4 flex items-center gap-3">
+                    <MapPin className="w-5 h-5 text-primary" />
+                    <span>{personalInfo.location}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <Button variant="outline" className="rounded-xl justify-start" asChild>
+                      <a href={isUsableLink(personalInfo.github) ? personalInfo.github : "#projects"} target={isUsableLink(personalInfo.github) ? "_blank" : undefined} rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2" /> GitHub
+                      </a>
+                    </Button>
+                    <Button variant="outline" className="rounded-xl justify-start" asChild>
+                      <a href={isUsableLink(personalInfo.linkedin) ? personalInfo.linkedin : "#contact"} target={isUsableLink(personalInfo.linkedin) ? "_blank" : undefined} rel="noopener noreferrer">
+                        <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="mt-8 rounded-2xl border border-primary/20 bg-primary/10 p-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
+                    <p className="text-sm text-muted-foreground">
+                      I use AI to speed up research and iteration, but I verify outputs with data, logic, and business context.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 text-left border-border/50 bg-card/30">
+              <form className="space-y-4" onSubmit={sendContact}>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">Name</label>
@@ -336,6 +407,7 @@ export default function Home() {
                     onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
                     placeholder="John Doe"
                     className="bg-background/50"
+                    required
                   />
                 </div>
                 <div className="space-y-2">
@@ -347,6 +419,7 @@ export default function Home() {
                     onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
                     placeholder="john@example.com"
                     className="bg-background/50"
+                    required
                   />
                 </div>
               </div>
@@ -358,13 +431,15 @@ export default function Home() {
                   onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
                   placeholder="Hello Ganesh, I'd like to discuss..."
                   className="min-h-[120px] bg-background/50"
+                  required
                 />
               </div>
-              <Button type="submit" className="w-full">
-                <Mail className="w-4 h-4 mr-2" /> Send Message
+              <Button type="submit" className="w-full gap-2">
+                <Send className="w-4 h-4" /> Send Message
               </Button>
             </form>
           </Card>
+          </div>
         </section>
 
       </main>
