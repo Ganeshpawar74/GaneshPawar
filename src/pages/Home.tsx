@@ -177,13 +177,17 @@ export default function Home() {
             </motion.h1>
 
             <motion.div
-              className="inline-flex flex-wrap items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs sm:text-sm font-medium text-primary mb-6"
+              className="w-full max-w-lg rounded-full border border-primary/20 bg-primary/5 px-4 py-3 text-xs sm:text-sm font-medium text-primary mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <span>🟢</span>
-              <span>Open to Work · Available for Full-time / Internship</span>
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                <span className="inline-flex h-3.5 w-3.5 rounded-full bg-emerald-400 shadow-sm" />
+                <span className="font-semibold">Open to Work</span>
+                <span className="hidden sm:inline text-primary/70">·</span>
+                <span className="text-slate-700 dark:text-slate-300">Available for Full-time / Internship</span>
+              </div>
             </motion.div>
             
             <motion.p 
