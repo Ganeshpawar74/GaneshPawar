@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { personalInfo, projects, skills, certifications } from "@/data/portfolio";
-import { Github, Linkedin, Mail, Download, ChevronRight, Code2, Database, TerminalSquare, BrainCircuit, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ChevronRight, Code2, Database, TerminalSquare, BrainCircuit, MapPin, Send, CheckCircle2, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,6 +18,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const [typedRole, setTypedRole] = useState("");
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const { toast } = useToast();
 
@@ -90,6 +91,14 @@ export default function Home() {
           <div className="font-heading font-bold text-xl tracking-tighter">
             GP<span className="text-primary">.</span>
           </div>
+          <button
+            type="button"
+            className="md:hidden p-2 rounded-full border border-border/50 bg-background/70 hover:bg-background transition"
+            onClick={() => setMobileNavOpen((open) => !open)}
+            aria-label="Toggle navigation"
+          >
+            {mobileNavOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
           <nav className="hidden md:flex gap-6 text-sm font-medium text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-colors">About</a>
             <a href="#skills" className="hover:text-foreground transition-colors">Skills</a>
@@ -104,6 +113,29 @@ export default function Home() {
               </a>
             </Button>
           </div>
+          {mobileNavOpen ? (
+            <div className="absolute left-0 right-0 top-full z-40 border-t border-border/50 bg-background/95 backdrop-blur-xl md:hidden">
+              <div className="flex flex-col gap-3 px-4 py-4">
+                <a href="#about" className="text-sm font-medium text-foreground py-3 rounded-xl hover:bg-primary/10 transition" onClick={() => setMobileNavOpen(false)}>
+                  About
+                </a>
+                <a href="#skills" className="text-sm font-medium text-foreground py-3 rounded-xl hover:bg-primary/10 transition" onClick={() => setMobileNavOpen(false)}>
+                  Skills
+                </a>
+                <a href="#projects" className="text-sm font-medium text-foreground py-3 rounded-xl hover:bg-primary/10 transition" onClick={() => setMobileNavOpen(false)}>
+                  Projects
+                </a>
+                <a href="#contact" className="text-sm font-medium text-foreground py-3 rounded-xl hover:bg-primary/10 transition" onClick={() => setMobileNavOpen(false)}>
+                  Contact
+                </a>
+                <Button asChild size="sm" className="rounded-full px-6 w-full">
+                  <a href={personalInfo.resume} target="_blank" rel="noopener noreferrer" onClick={() => setMobileNavOpen(false)}>
+                    Resume <Download className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          ) : null}
         </div>
       </header>
 
