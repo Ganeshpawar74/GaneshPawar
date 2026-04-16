@@ -211,10 +211,12 @@ export default function Home() {
                 <TerminalSquare className="text-primary w-8 h-8" />
                 About Me
               </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg mb-8">
-                {personalInfo.about}
-              </p>
-              
+              {personalInfo.about.split(/\n\s*\n/).map((paragraph, idx) => (
+                <p key={idx} className="text-muted-foreground leading-relaxed text-lg mb-6">
+                  {paragraph}
+                </p>
+              ))}
+
               <h3 className="text-xl font-bold font-heading mb-4 flex items-center gap-2">
                 <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors">Certifications</Badge>
               </h3>

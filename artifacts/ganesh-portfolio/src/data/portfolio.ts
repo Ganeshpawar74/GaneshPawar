@@ -13,12 +13,18 @@ export const personalInfo = {
   role: "AI & ML Engineering Student",
   roles: ["Data Analyst", "ML Engineer", "AI Automation Builder"],
   tagline: "Turning Data into Decisions & AI into Impact",
-  about: "Final-year AI & ML engineering student in Mumbai specializing in Data Analytics, Machine Learning, forecasting, Power BI, SQL/Python/Excel, FastAPI, NLP, and n8n AI automation. I work by understanding the business problem first, breaking it into clear steps, using AI as a smart assistant for faster research and iteration, and then validating the solution with data, logic, and real-world impact.",
+  about: `AI & ML engineering student in Mumbai focused on solving real-world problems with data and machine learning.
+
+I add value by turning complex, messy challenges into clear, structured solutions that work in practice—not just in theory.
+
+My approach is simple: understand the business problem first, break it into manageable steps, and then build practical, scalable solutions driven by real data. Most of what I know comes from building projects, experimenting, and improving with each iteration.
+
+I do use AI as a smart assistant to move faster and explore ideas—but don’t worry, I’m not replaceable 😄 Every solution I build is backed by logic, tested carefully, and designed to deliver meaningful real-world impact.`,
   location: "Mumbai, India",
   email: "ganesh.pawar@example.com",
-  linkedin: "https://linkedin.com/in/placeholder",
-  github: "https://github.com/placeholder",
-  resume: "/resume.pdf",
+  linkedin: "https://www.linkedin.com/in/ganesh-pawar-073950216/",
+  github: "https://github.com/Ganeshpawar74",
+  resume: "/Ganesh_Pawar_DA.pdf",
 };
 
 export const skills = [
