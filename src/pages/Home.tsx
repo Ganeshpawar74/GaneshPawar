@@ -139,10 +139,10 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 md:px-6 pt-24 pb-16">
+      <main className="container mx-auto px-4 md:px-6 pt-20 pb-16">
         
         {/* Hero Section */}
-        <section className="py-20 md:py-28 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+        <section className="py-16 md:py-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

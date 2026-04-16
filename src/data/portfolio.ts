@@ -39,9 +39,9 @@ export const skills = [
 ];
 
 export const certifications = [
-  { title: "IBM Data Science Professional Certificate", issuer: "IBM", date: "2023" },
+  { title: "Data Visualization With Python", issuer: "IBM", date: "2023" },
   { title: "Zensar Core Python & SQL", issuer: "Zensar Technologies", date: "2023" },
-  { title: "Machine Learning Specialization", issuer: "Stanford Online", date: "2024" },
+  { title: "Machine Learning", issuer: "Krish Naik Academy", date: "2024" },
 ];
 
 export const projects: Project[] = [
