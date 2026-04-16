@@ -147,24 +147,24 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 md:px-6 pt-16 pb-16">
+      <main className="container mx-auto px-4 md:px-6 pt-14 pb-16">
         
         {/* Hero Section */}
-        <section className="py-8 md:py-12 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
-          <div className="max-w-4xl">
+        <section className="py-6 md:py-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
+          <div className="max-w-3xl sm:max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Badge variant="outline" className="mb-6 px-3 py-1 text-sm border-primary/30 text-primary bg-primary/5 rounded-full">
+              <Badge variant="outline" className="mb-5 px-3 py-1 text-xs sm:text-sm border-primary/30 text-primary bg-primary/5 rounded-full">
                 <BrainCircuit className="w-4 h-4 mr-2" />
                 {personalInfo.role}
               </Badge>
             </motion.div>
             
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-7xl font-bold font-heading leading-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-6xl font-bold font-heading leading-tight mb-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -177,7 +177,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.div
-              className="inline-flex flex-wrap items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary mb-8"
+              className="inline-flex flex-wrap items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs sm:text-sm font-medium text-primary mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
@@ -187,7 +187,7 @@ export default function Home() {
             </motion.div>
             
             <motion.p 
-              className="text-base md:text-xl text-muted-foreground mb-8 max-w-2xl font-mono"
+              className="text-sm sm:text-base md:text-xl text-muted-foreground mb-6 max-w-full sm:max-w-2xl font-mono"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -199,20 +199,20 @@ export default function Home() {
             </motion.p>
             
             <motion.div 
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Button size="lg" className="rounded-full px-8 gap-2 glow-effect" asChild>
+              <Button size="lg" className="w-full sm:w-auto rounded-full px-6 gap-2 glow-effect" asChild>
                 <a href="#projects">View Projects <ChevronRight className="w-4 h-4" /></a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-8 gap-2" asChild>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full px-6 gap-2" asChild>
                 <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
                   <Github className="w-4 h-4" /> GitHub
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-8 gap-2" asChild>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full px-6 gap-2" asChild>
                 <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
                   <Linkedin className="w-4 h-4" /> LinkedIn
                 </a>
