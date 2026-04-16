@@ -139,10 +139,10 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 md:px-6 pt-20 pb-16">
+      <main className="container mx-auto px-4 md:px-6 pt-16 pb-16">
         
         {/* Hero Section */}
-        <section className="py-16 md:py-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+        <section className="py-8 md:py-12 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -156,7 +156,7 @@ export default function Home() {
             </motion.div>
             
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold font-heading leading-tight mb-6"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold font-heading leading-tight mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -169,7 +169,7 @@ export default function Home() {
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl font-mono text-sm md:text-base"
+              className="text-base md:text-xl text-muted-foreground mb-8 max-w-2xl font-mono"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
