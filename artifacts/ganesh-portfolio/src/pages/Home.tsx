@@ -10,8 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const categories = ["All", "Data Analytics", "Machine Learning", "AI Automation"];
-const heroSignals = ["SQL", "Python", "Power BI", "FastAPI", "NLP", "n8n"];
-
 export default function Home() {
   const [filter, setFilter] = useState("All");
   const [query, setQuery] = useState("");
@@ -181,20 +179,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {heroSignals.map((signal, index) => (
-                <motion.div
-                  key={signal}
-                  className="absolute rounded-full border border-primary/30 bg-background/80 px-4 py-2 text-sm font-semibold text-foreground shadow-lg shadow-primary/10"
-                  style={{
-                    left: `${12 + (index % 3) * 29}%`,
-                    top: `${12 + Math.floor(index / 3) * 68}%`,
-                  }}
-                  animate={{ y: [0, index % 2 === 0 ? -12 : 12, 0] }}
-                  transition={{ duration: 3 + index * 0.2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  {signal}
-                </motion.div>
-              ))}
             </div>
           </motion.div>
         </section>
