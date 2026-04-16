@@ -52,6 +52,14 @@ export default function Home() {
     });
   }, [filter, query]);
 
+  const groupedSkills = useMemo(() => {
+    return skills.reduce<Record<string, { name: string; group: string }[]>>((grouped, skill) => {
+      if (!grouped[skill.group]) grouped[skill.group] = [];
+      grouped[skill.group].push(skill);
+      return grouped;
+    }, {});
+  }, [skills]);
+
   const sendContact = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
@@ -275,16 +283,19 @@ export default function Home() {
                 <p className="text-sm text-muted-foreground mb-5">
                   Tools I use to turn raw data, ideas, and AI workflows into practical solutions.
                 </p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {skills.map((skill, idx) => (
-                  <div
-                    key={idx}
-                    className="group rounded-xl border border-border/50 bg-background/40 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:bg-primary/10"
-                  >
-                    <span className="block text-base font-semibold text-foreground">{skill.name}</span>
-                    <span className="mt-1 block text-xs font-mono text-primary/80">{skill.group}</span>
-                  </div>
-                ))}
+                <div className="grid gap-4 lg:grid-cols-3">
+                  {Object.entries(groupedSkills).map(([group, groupSkills]) => (
+                    <div key={group} className="rounded-2xl border border-border/50 bg-background/60 p-4">
+                      <h4 className="text-base font-semibold mb-3">{group}</h4>
+                      <div className="space-y-2">
+                        {groupSkills.map((skill) => (
+                          <div key={skill.name} className="rounded-xl border border-border/60 bg-card/10 px-4 py-3 text-sm font-medium text-foreground">
+                            {skill.name}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

@@ -26,16 +26,17 @@ I’m particularly interested in building systems that go beyond dashboards—so
 };
 
 export const skills = [
-  { name: "SQL", group: "Data" },
-  { name: "Python", group: "Core" },
-  { name: "Excel", group: "Data" },
-  { name: "Power BI", group: "Analytics" },
-  { name: "Machine Learning", group: "AI" },
-  { name: "NLP", group: "AI" },
-  { name: "FastAPI", group: "Backend" },
-  { name: "n8n", group: "Automation" },
-  { name: "APIs", group: "Backend" },
-  { name: "GitHub", group: "Tools" },
+  { name: "SQL", group: "Data & Analytics" },
+  { name: "Python", group: "Data & Analytics" },
+  { name: "Excel", group: "Data & Analytics" },
+  { name: "Power BI", group: "Data & Analytics" },
+  { name: "Supervised Learning", group: "Machine Learning" },
+  { name: "NLP", group: "Machine Learning" },
+  { name: "Forecasting", group: "Machine Learning" },
+  { name: "FastAPI", group: "Tools & Development" },
+  { name: "n8n", group: "Tools & Development" },
+  { name: "API Development", group: "Tools & Development" },
+  { name: "Automation", group: "Tools & Development" },
 ];
 
 export const certifications = [
