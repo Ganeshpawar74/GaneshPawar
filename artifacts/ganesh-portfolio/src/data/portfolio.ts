@@ -13,7 +13,7 @@ export const personalInfo = {
   role: "AI & ML Engineering Student",
   roles: ["Data Analyst", "ML Engineer", "AI Automation Builder"],
   tagline: "Turning Data into Decisions & AI into Impact",
-  about: "Final-year AI & ML engineering student in Mumbai specializing in Data Analytics, Machine Learning, forecasting, Power BI, SQL/Python/Excel, and n8n AI automation. Passionate about building robust data pipelines and intelligent automated systems that drive real business value.",
+  about: "Final-year AI & ML engineering student in Mumbai specializing in Data Analytics, Machine Learning, forecasting, Power BI, SQL/Python/Excel, FastAPI, NLP, and n8n AI automation. I work by understanding the business problem first, breaking it into clear steps, using AI as a smart assistant for faster research and iteration, and then validating the solution with data, logic, and real-world impact.",
   location: "Mumbai, India",
   email: "ganesh.pawar@example.com",
   linkedin: "https://linkedin.com/in/placeholder",
@@ -22,14 +22,16 @@ export const personalInfo = {
 };
 
 export const skills = [
-  { name: "SQL", level: 90 },
-  { name: "Python", level: 85 },
-  { name: "Excel", level: 95 },
-  { name: "Power BI", level: 88 },
-  { name: "Machine Learning", level: 80 },
-  { name: "n8n", level: 85 },
-  { name: "APIs", level: 82 },
-  { name: "GitHub", level: 80 },
+  { name: "SQL", group: "Data" },
+  { name: "Python", group: "Core" },
+  { name: "Excel", group: "Data" },
+  { name: "Power BI", group: "Analytics" },
+  { name: "Machine Learning", group: "AI" },
+  { name: "NLP", group: "AI" },
+  { name: "FastAPI", group: "Backend" },
+  { name: "n8n", group: "Automation" },
+  { name: "APIs", group: "Backend" },
+  { name: "GitHub", group: "Tools" },
 ];
 
 export const certifications = [
@@ -68,7 +70,7 @@ export const projects: Project[] = [
     title: "AI Personal Assistant",
     description: "Automated conversational agent using n8n workflows integrated with LLM APIs to handle email summaries, meeting scheduling, and web research.",
     category: "AI Automation",
-    techStack: ["n8n", "OpenAI API", "Python"],
+    techStack: ["n8n", "OpenAI API", "Python", "APIs"],
     github: "#",
   },
   {
@@ -84,7 +86,7 @@ export const projects: Project[] = [
     title: "Job Recommender System",
     description: "Content-based recommendation engine matching user resumes to job descriptions using NLP and vector embeddings.",
     category: "Machine Learning",
-    techStack: ["Python", "NLTK", "FastAPI"],
+    techStack: ["Python", "NLP", "FastAPI"],
     github: "#",
   },
   {

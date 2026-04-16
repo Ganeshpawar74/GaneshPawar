@@ -2,11 +2,10 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { personalInfo, projects, skills, certifications } from "@/data/portfolio";
-import { Github, Linkedin, Mail, Download, ExternalLink, ChevronRight, Code2, Database, TerminalSquare, BrainCircuit } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ChevronRight, Code2, Database, TerminalSquare, BrainCircuit } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -185,16 +184,21 @@ export default function Home() {
                 <Code2 className="text-primary w-8 h-8" />
                 Technical Stack
               </h2>
-              <div className="grid gap-6 p-6 rounded-2xl border border-border/50 bg-card/30">
+              <div className="rounded-2xl border border-border/50 bg-card/30 p-5">
+                <p className="text-sm text-muted-foreground mb-5">
+                  Tools I use to turn raw data, ideas, and AI workflows into practical solutions.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {skills.map((skill, idx) => (
-                  <div key={idx}>
-                    <div className="flex justify-between mb-2">
-                      <span className="font-mono text-sm font-medium">{skill.name}</span>
-                      <span className="font-mono text-sm text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <Progress value={skill.level} className="h-2 bg-secondary" />
+                  <div
+                    key={idx}
+                    className="group rounded-xl border border-border/50 bg-background/40 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:bg-primary/10"
+                  >
+                    <span className="block text-base font-semibold text-foreground">{skill.name}</span>
+                    <span className="mt-1 block text-xs font-mono text-primary/80">{skill.group}</span>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </div>
