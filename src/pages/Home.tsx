@@ -356,11 +356,16 @@ export default function Home() {
                   transition={{ duration: 0.3 }}
                 >
                   <Card className="h-full flex flex-col bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 transition-colors group">
-                    <CardHeader>
-                      <div className="flex justify-between items-start mb-2">
-                        <Badge variant="secondary" className="bg-primary/10 text-primary text-xs">
-                          {project.category}
-                        </Badge>
+                    <CardHeader className="space-y-4">
+                      <div className="flex flex-wrap gap-2">
+                        {project.techStack.map((tech) => (
+                          <span key={tech} className="text-[11px] uppercase tracking-[0.2em] text-primary bg-primary/10 rounded-full px-3 py-1">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex items-start justify-between gap-4">
+                        <CardTitle className="font-heading text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
                         {isUsableLink(project.github) ? (
                           <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label={`${project.title} GitHub repository`}>
                             <Github className="w-5 h-5" />
@@ -371,21 +376,23 @@ export default function Home() {
                           </span>
                         )}
                       </div>
-                      <CardTitle className="font-heading text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="flex-1">
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                         {project.description}
                       </p>
+                      {project.impact ? (
+                        <div className="rounded-2xl border border-border/60 bg-primary/10 px-4 py-3 text-sm text-primary">
+                          {project.impact}
+                        </div>
+                      ) : null}
                     </CardContent>
-                    <CardFooter className="pt-4 border-t border-border/30">
-                      <div className="flex flex-wrap gap-2">
-                        {project.techStack.map(tech => (
-                          <span key={tech} className="font-mono text-xs px-2 py-1 bg-secondary rounded text-secondary-foreground">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                    <CardFooter className="pt-5 border-t border-border/30">
+                      <Button size="sm" variant="ghost" className="w-full justify-start gap-2 text-muted-foreground hover:text-foreground" asChild>
+                        <a href={project.github || personalInfo.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4" /> View Source Code
+                        </a>
+                      </Button>
                     </CardFooter>
                   </Card>
                 </motion.div>

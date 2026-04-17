@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   category: "Data Analytics" | "Machine Learning" | "AI Automation";
   techStack: string[];
+  impact?: string;
   link?: string;
   github?: string;
 }
@@ -51,55 +52,62 @@ export const projects: Project[] = [
     title: "Road Accident Dashboard",
     description: "Comprehensive Power BI dashboard analyzing road accident data to identify high-risk zones, demographic patterns, and time-based trends to aid local authorities in proactive safety measures.",
     category: "Data Analytics",
-    techStack: ["Power BI", "Excel", "SQL"],
-    github: "#",
+    techStack: ["Analytics", "Power BI", "SQL"],
+    impact: "Impact: 15+ actionable insights from 1M+ records",
+    github: "https://github.com/Ganeshpawar74",
   },
   {
     id: "healthcare-dash",
-    title: "Healthcare Analytics Dashboard",
+    title: "Healthcare MIS Dashboard",
     description: "Data visualization tool for hospital administrators tracking patient wait times, resource allocation, and readmission rates to optimize operational efficiency.",
     category: "Data Analytics",
-    techStack: ["Python", "Pandas", "Power BI"],
-    github: "#",
+    techStack: ["Analytics", "Power BI", "Excel"],
+    impact: "Impact: Reduced reporting time by 60%",
+    github: "https://github.com/Ganeshpawar74",
   },
   {
     id: "starbucks-sales",
     title: "Starbucks Sales Dashboard",
     description: "Interactive sales tracker that visualizes store performance, product popularity, and seasonal trends across various regions.",
     category: "Data Analytics",
-    techStack: ["SQL", "Excel", "Power BI"],
-    github: "#",
+    techStack: ["Analytics", "Power BI", "Python"],
+    impact: "Impact: Identified 3 key revenue growth opportunities",
+    github: "https://github.com/Ganeshpawar74",
   },
   {
     id: "ai-assistant",
     title: "AI Personal Assistant",
     description: "Automated conversational agent using n8n workflows integrated with LLM APIs to handle email summaries, meeting scheduling, and web research.",
     category: "AI Automation",
-    techStack: ["n8n", "OpenAI API", "Python", "APIs"],
-    github: "#",
+    techStack: ["AI", "Automation", "n8n"],
+    impact: "Impact: Streamlined repetitive tasks with automated workflows",
+    github: "https://github.com/Ganeshpawar74",
   },
   {
     id: "inventory-forecast",
     title: "Inventory Forecasting System",
     description: "Time-series forecasting model predicting stock requirements for retail stores based on historical sales data and seasonal fluctuations.",
     category: "Machine Learning",
-    techStack: ["Python", "scikit-learn", "Prophet"],
-    github: "#",
+    techStack: ["ML", "Python", "Scikit-learn"],
+    impact: "Impact: R² score 0.94, reduced overstock by 30%",
+    github: "https://github.com/Ganeshpawar74",
   },
   {
     id: "job-recommender",
-    title: "Job Recommender System",
-    description: "Content-based recommendation engine matching user resumes to job descriptions using NLP and vector embeddings.",
+    title: "GenAI Job Recommender",
+    description: "AI-powered job recommendation system using LLMs and RAG pipeline for personalized matches.",
     category: "Machine Learning",
-    techStack: ["Python", "NLP", "FastAPI"],
-    github: "#",
+    techStack: ["GenAI", "Python", "LLM"],
+    impact: "Impact: 85% user satisfaction rate",
+    github: "https://github.com/Ganeshpawar74",
   },
   {
     id: "movie-recommendation",
     title: "Movie Recommendation System",
     description: "Collaborative filtering system suggesting movies to users based on viewing history and rating patterns.",
     category: "Machine Learning",
-    techStack: ["Python", "Pandas", "scikit-learn"],
-    github: "#",
+    techStack: ["ML", "Python", "NLP"],
+    impact: "Impact: 92% precision@10",
+    github: "https://github.com/Ganeshpawar74",
   }
 ];
