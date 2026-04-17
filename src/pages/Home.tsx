@@ -184,9 +184,9 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               &gt; Current role: <span className="text-primary">{typedRole}</span><span className="animate-pulse">_</span><br/>
-              &gt; Initializing datastore...<br/>
-              &gt; Loading ML models...<br/>
-              &gt; Status: Ready for impact.
+              &gt; Turning raw data into practical insights...<br/>
+              &gt; Building scalable AI systems for real-world decisions...<br/>
+              &gt; Delivering smart automation that drives measurable impact.
             </motion.p>
             
             <motion.div 

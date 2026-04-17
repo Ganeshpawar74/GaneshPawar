@@ -10,7 +10,7 @@ export interface Project {
 
 export const personalInfo = {
   name: "Ganesh Pawar",
-  role: "AI & ML Engineering Student",
+  role: "AI/ML Engineer",
   roles: ["Data Analyst", "ML Engineer", "AI Automation Builder"],
   tagline: "Turning Data into Decisions & AI into Impact",
   about: `AI & ML engineering student based in Mumbai, focused on using data to solve real-world problems. I enjoy turning complex, messy challenges into clear, structured solutions that actually work in practice.
