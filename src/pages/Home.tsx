@@ -170,22 +170,19 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               Hi, I'm {personalInfo.name}.<br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">
-                {personalInfo.tagline.split('&')[0]} &<br/>
-                {personalInfo.tagline.split('&')[1]}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 block">
+                Turning Data into Decisions & AI into Impact
               </span>
             </motion.h1>
 
             <motion.div
-              className="w-full max-w-lg rounded-full border border-primary/20 bg-primary/5 px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-medium text-primary mb-6"
+              className="w-full rounded-full border border-primary/30 bg-gradient-to-r from-primary/10 to-transparent px-4 py-3 sm:px-6 sm:py-4 text-xs sm:text-sm font-semibold text-primary mb-8 flex items-center justify-center gap-3 flex-nowrap backdrop-blur-sm"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <div className="flex items-center gap-2 justify-center">
-                <span className="inline-flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 rounded-full bg-emerald-400 shadow-sm" />
-                <span className="whitespace-nowrap">Open to Work · Available for Full-time / Internship</span>
-              </div>
+              <span className="inline-flex h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/50 flex-shrink-0" />
+              <span className="whitespace-nowrap">Open to Work · Available for Full-time / Internship</span>
             </motion.div>
             
             <motion.p 
