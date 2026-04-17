@@ -164,26 +164,18 @@ export default function Home() {
             </motion.div>
             
             <motion.h1 
-              className="text-3xl sm:text-4xl md:text-6xl font-bold font-heading leading-tight mb-5"
+              className="text-3xl sm:text-4xl md:text-6xl font-bold font-heading leading-tight mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               Hi, I'm {personalInfo.name}.<br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 block">
-                Turning Data into Decisions & AI into Impact
+                Turning Data into<br/>
+                Decisions & AI<br/>
+                into Impact
               </span>
             </motion.h1>
-
-            <motion.div
-              className="w-full rounded-full border border-primary/30 bg-gradient-to-r from-primary/10 to-transparent px-4 py-3 sm:px-6 sm:py-4 text-xs sm:text-sm font-semibold text-primary mb-8 flex items-center justify-center gap-3 flex-nowrap backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-            >
-              <span className="inline-flex h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/50 flex-shrink-0" />
-              <span className="whitespace-nowrap">Open to Work · Available for Full-time / Internship</span>
-            </motion.div>
             
             <motion.p 
               className="text-sm sm:text-base md:text-xl text-muted-foreground mb-6 max-w-full sm:max-w-2xl font-mono"
@@ -214,6 +206,11 @@ export default function Home() {
               <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full px-6 gap-2" asChild>
                 <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
                   <Linkedin className="w-4 h-4" /> LinkedIn
+                </a>
+              </Button>
+              <Button size="lg" className="w-full sm:w-auto rounded-full px-6 gap-2 glow-effect" asChild>
+                <a href={`mailto:${personalInfo.email}`}>
+                  <Mail className="w-4 h-4" /> Hire Me
                 </a>
               </Button>
             </motion.div>
