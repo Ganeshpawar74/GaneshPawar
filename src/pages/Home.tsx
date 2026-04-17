@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { personalInfo, projects, skills, certifications } from "@/data/portfolio";
-import { Github, Linkedin, Mail, Download, ChevronRight, Code2, Database, TerminalSquare, BrainCircuit, MapPin, Send, CheckCircle2, Menu, X } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ChevronRight, Code2, Database, TerminalSquare, BrainCircuit, MapPin, Send, CheckCircle2, Instagram, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -542,8 +542,46 @@ export default function Home() {
 
       </main>
 
-      <footer className="border-t border-border/40 py-8 text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} {personalInfo.name}. Built with React & Tailwind.</p>
+      <footer className="border-t border-border/40 py-4">
+        <div className="container mx-auto px-4 md:px-6 flex flex-col items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+            >
+              <Mail className="w-4 h-4" />
+              {personalInfo.email}
+            </a>
+            <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+            >
+              <Github className="w-4 h-4" />
+              GitHub
+            </a>
+            <a
+              href={personalInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+            >
+              <Linkedin className="w-4 h-4" />
+              LinkedIn
+            </a>
+            <a
+              href={personalInfo.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+            >
+              <Instagram className="w-4 h-4" />
+              Instagram
+            </a>
+          </div>
+          <p className="text-xs text-muted-foreground/70">© {new Date().getFullYear()} {personalInfo.name}</p>
+        </div>
       </footer>
     </div>
   );
