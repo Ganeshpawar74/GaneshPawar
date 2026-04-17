@@ -20,7 +20,7 @@ My approach is simple: understand the problem deeply, break it into manageable s
 
 I’m particularly interested in building systems that go beyond dashboards—solutions that can analyze, predict, and automate decisions to create real impact.`,
   location: "Mumbai, India",
-  email: "ganesh.pawar@example.com",
+  email: "ganeshppawar864@gmail.com",
   linkedin: "https://www.linkedin.com/in/ganesh-pawar-073950216/",
   github: "https://github.com/Ganeshpawar74",
   resume: "/Ganesh_Pawar_DA.pdf",
