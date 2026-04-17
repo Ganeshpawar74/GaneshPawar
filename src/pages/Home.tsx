@@ -544,40 +544,44 @@ export default function Home() {
 
       <footer className="border-t border-border/40 py-4">
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center gap-3">
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-3">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+              aria-label="Email"
+              title="Email"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/50 bg-background/80 text-muted-foreground hover:text-foreground transition"
             >
-              <Mail className="w-4 h-4" />
-              {personalInfo.email}
+              <Mail className="w-5 h-5" />
             </a>
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+              aria-label="GitHub"
+              title="GitHub"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/50 bg-background/80 text-muted-foreground hover:text-foreground transition"
             >
-              <Github className="w-4 h-4" />
-              GitHub
+              <Github className="w-5 h-5" />
             </a>
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/50 bg-background/80 text-muted-foreground hover:text-foreground transition"
             >
-              <Linkedin className="w-4 h-4" />
-              LinkedIn
+              <Linkedin className="w-5 h-5" />
             </a>
             <a
               href={personalInfo.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+              aria-label="Instagram"
+              title="Instagram"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/50 bg-background/80 text-muted-foreground hover:text-foreground transition"
             >
-              <Instagram className="w-4 h-4" />
-              Instagram
+              <Instagram className="w-5 h-5" />
             </a>
           </div>
           <p className="text-xs text-muted-foreground/70">© {new Date().getFullYear()} {personalInfo.name}</p>
