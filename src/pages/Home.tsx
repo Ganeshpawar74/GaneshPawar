@@ -378,21 +378,16 @@ export default function Home() {
                       </div>
                     </CardHeader>
                     <CardContent className="flex-1">
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {project.description}
                       </p>
+                    </CardContent>
+                    <CardFooter className="mt-auto pt-5 border-t border-border/30">
                       {project.impact ? (
-                        <div className="rounded-2xl border border-border/60 bg-primary/10 px-4 py-3 text-sm text-primary">
+                        <div className="rounded-2xl border border-border/60 bg-primary/10 px-4 py-3 text-sm text-primary w-full">
                           {project.impact}
                         </div>
                       ) : null}
-                    </CardContent>
-                    <CardFooter className="pt-5 border-t border-border/30">
-                      <Button size="sm" variant="ghost" className="w-full justify-start gap-2 text-muted-foreground hover:text-foreground" asChild>
-                        <a href={project.github || personalInfo.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4" /> View Source Code
-                        </a>
-                      </Button>
                     </CardFooter>
                   </Card>
                 </motion.div>

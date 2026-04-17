@@ -50,7 +50,7 @@ export const projects: Project[] = [
   {
     id: "road-accident",
     title: "Road Accident Dashboard",
-    description: "Comprehensive Power BI dashboard analyzing road accident data to identify high-risk zones, demographic patterns, and time-based trends to aid local authorities in proactive safety measures.",
+    description: "Power BI dashboard built to identify high-risk zones, compare accident patterns by location and time, and support data-driven road safety decisions.",
     category: "Data Analytics",
     techStack: ["Analytics", "Power BI", "SQL"],
     impact: "Impact: 15+ actionable insights from 1M+ records",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
   {
     id: "healthcare-dash",
     title: "Healthcare MIS Dashboard",
-    description: "Data visualization tool for hospital administrators tracking patient wait times, resource allocation, and readmission rates to optimize operational efficiency.",
+    description: "A management dashboard for hospital administrators that tracks KPIs, resource utilization, and patient flow to improve operational efficiency.",
     category: "Data Analytics",
     techStack: ["Analytics", "Power BI", "Excel"],
     impact: "Impact: Reduced reporting time by 60%",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
   {
     id: "starbucks-sales",
     title: "Starbucks Sales Dashboard",
-    description: "Interactive sales tracker that visualizes store performance, product popularity, and seasonal trends across various regions.",
+    description: "Interactive sales analytics platform showing product performance, regional trends, and seasonal demand to support retail decision-making.",
     category: "Data Analytics",
     techStack: ["Analytics", "Power BI", "Python"],
     impact: "Impact: Identified 3 key revenue growth opportunities",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
   {
     id: "ai-assistant",
     title: "AI Personal Assistant",
-    description: "Automated conversational agent using n8n workflows integrated with LLM APIs to handle email summaries, meeting scheduling, and web research.",
+    description: "Conversational automation built with n8n and LLM APIs for email summaries, schedule planning, and quick research workflows.",
     category: "AI Automation",
     techStack: ["AI", "Automation", "n8n"],
     impact: "Impact: Streamlined repetitive tasks with automated workflows",
@@ -86,7 +86,7 @@ export const projects: Project[] = [
   {
     id: "inventory-forecast",
     title: "Inventory Forecasting System",
-    description: "Time-series forecasting model predicting stock requirements for retail stores based on historical sales data and seasonal fluctuations.",
+    description: "Seasonal forecast model using historical demand data to recommend stock levels and prevent overstock in retail operations.",
     category: "Machine Learning",
     techStack: ["ML", "Python", "Scikit-learn"],
     impact: "Impact: R² score 0.94, reduced overstock by 30%",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
   {
     id: "job-recommender",
     title: "GenAI Job Recommender",
-    description: "AI-powered job recommendation system using LLMs and RAG pipeline for personalized matches.",
+    description: "Intelligent job matching system using NLP and retrieval-augmented generation to align candidates with relevant roles.",
     category: "Machine Learning",
     techStack: ["GenAI", "Python", "LLM"],
     impact: "Impact: 85% user satisfaction rate",
@@ -104,7 +104,7 @@ export const projects: Project[] = [
   {
     id: "movie-recommendation",
     title: "Movie Recommendation System",
-    description: "Collaborative filtering system suggesting movies to users based on viewing history and rating patterns.",
+    description: "Hybrid recommendation engine combining collaborative filtering and NLP features to suggest content based on viewing history.",
     category: "Machine Learning",
     techStack: ["ML", "Python", "NLP"],
     impact: "Impact: 92% precision@10",
