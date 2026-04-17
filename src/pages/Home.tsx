@@ -184,9 +184,8 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               &gt; Current role: <span className="text-primary">{typedRole}</span><span className="animate-pulse">_</span><br/>
-              &gt; Turning raw data into practical insights...<br/>
-              &gt; Building scalable AI systems for real-world decisions...<br/>
-              &gt; Delivering smart automation that drives measurable impact.
+              &gt; Building AI solutions grounded in business outcomes.<br/>
+              &gt; Turning data into decision-ready systems.
             </motion.p>
             
             <motion.div 
@@ -398,6 +397,52 @@ export default function Home() {
               No matching projects found. Try a different search or category.
             </div>
           )}
+        </section>
+
+        <section id="why" className="py-24 border-t border-border/40">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">
+                Why Hire Me?
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+                I build more than models; I deliver solutions that connect data, AI, and automation to real business goals. My focus is on measurable value, reliable systems, and continuous improvement.
+              </p>
+              <div className="grid gap-4">
+                <div className="rounded-2xl border border-border/50 bg-card/30 p-5">
+                  <h3 className="text-lg font-semibold mb-2">Outcome-first mindset</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    I prioritize business impact and build models that are interpretable, scalable, and useful for stakeholders.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-border/50 bg-card/30 p-5">
+                  <h3 className="text-lg font-semibold mb-2">Data-to-decision workflow</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    From data collection and analysis to predictive modeling and automation, I deliver end-to-end solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                "Strong problem-solving mindset with data-first thinking",
+                "Data → Insight → Decision → Automation approach",
+                "Focus on real-world business impact, not just academic metrics",
+                "AI + Automation integration mindset",
+                "End-to-end project delivery experience",
+              ].map((item, index) => (
+                <div key={index} className="rounded-2xl border border-border/50 bg-card/30 p-5 flex items-center gap-4">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </span>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section id="contact" className="py-20 border-t border-border/40">
