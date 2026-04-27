@@ -25,3 +25,9 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## Artifacts
+
+- **`artifacts/ganesh-portfolio`** (`react-vite`, served at `/`) — Recruiter-focused single-page portfolio for Ganesh Pawar (Data Analyst / ML Engineer / AI Automation Builder). Imported from a Vercel/v0 export. Stack: React 18 + Vite + Tailwind v4 + shadcn/ui + wouter + Framer Motion. All content is client-side; portfolio data lives in `src/data/portfolio.ts`. No backend or database used.
+- **`artifacts/api-server`** — Pre-existing scaffold; not used by the portfolio.
+- **`artifacts/mockup-sandbox`** — Pre-existing scaffold for canvas mockups.
