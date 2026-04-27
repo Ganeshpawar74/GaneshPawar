@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { personalInfo, projects, skills, certifications } from "@/data/portfolio";
@@ -9,6 +9,11 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { TiltCard } from "@/components/TiltCard";
+import { CursorSpotlight } from "@/components/CursorSpotlight";
+import { Reveal } from "@/components/Reveal";
+
+const Scene3D = lazy(() => import("@/components/Scene3D"));
 
 const categories = ["All", "Data Analytics", "Machine Learning", "AI Automation"];
 const isUsableLink = (link?: string) => Boolean(link && link !== "#" && !link.includes("placeholder"));
@@ -86,12 +91,20 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen w-full relative">
-      {/* Background gradients */}
-      <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-background">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px]" />
-      </div>
+    <div className="min-h-screen w-full relative overflow-x-hidden">
+      {/* Solid base background */}
+      <div className="fixed inset-0 pointer-events-none -z-20 bg-background" />
+
+      {/* 3D animated WebGL scene */}
+      <Suspense fallback={null}>
+        <Scene3D />
+      </Suspense>
+
+      {/* Soft gradient overlay so text stays readable on top of 3D scene */}
+      <div className="fixed inset-0 pointer-events-none -z-[8] bg-[radial-gradient(ellipse_at_top,_hsl(var(--background)/0.4),_hsl(var(--background)/0.92)_70%)]" />
+
+      {/* Mouse-following spotlight */}
+      <CursorSpotlight />
 
       {/* Navbar */}
       <header className="fixed top-0 w-full z-50 glass-panel border-b-0 border-x-0 border-t-0 border-b border-border/50">
@@ -221,30 +234,46 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
           >
-            <div className="absolute inset-0 rounded-[2rem] border border-primary/20 bg-card/30 backdrop-blur-xl shadow-2xl shadow-primary/10 overflow-hidden">
-              <motion.div
-                className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl"
-                animate={{ scale: [1, 1.18, 1], opacity: [0.45, 0.8, 0.45] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <div className="absolute inset-8 rounded-[1.5rem] border border-border/50 bg-background/50 p-6">
-                <div className="flex items-center justify-between text-sm font-mono text-muted-foreground">
-                  <span>ai-workflow.ts</span>
-                  <span className="text-primary">online</span>
-                </div>
-                <div className="mt-8 space-y-4 font-mono text-sm">
-                  <div className="rounded-xl border border-border/60 bg-card/60 p-4">
-                    <span className="text-primary">01</span> Understand the business problem
+            <TiltCard className="absolute inset-0 rounded-[2rem]" intensity={10}>
+              <div className="absolute inset-0 rounded-[2rem] border border-primary/20 bg-card/20 backdrop-blur-xl shadow-2xl shadow-primary/10 overflow-hidden">
+                <motion.div
+                  className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl"
+                  animate={{ scale: [1, 1.18, 1], opacity: [0.45, 0.8, 0.45] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-cyan-400/15 blur-3xl"
+                  animate={{ x: [0, 25, 0], y: [0, 15, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <div className="absolute inset-8 rounded-[1.5rem] border border-border/50 bg-background/40 backdrop-blur-md p-6">
+                  <div className="flex items-center justify-between text-sm font-mono text-muted-foreground">
+                    <span>ai-workflow.ts</span>
+                    <span className="text-primary flex items-center gap-2">
+                      <span className="inline-block h-2 w-2 rounded-full bg-primary animate-pulse" />
+                      online
+                    </span>
                   </div>
-                  <div className="rounded-xl border border-border/60 bg-card/60 p-4">
-                    <span className="text-primary">02</span> Analyze data and find patterns
-                  </div>
-                  <div className="rounded-xl border border-border/60 bg-card/60 p-4">
-                    <span className="text-primary">03</span> Use AI to research, automate and improve
+                  <div className="mt-8 space-y-4 font-mono text-sm">
+                    {[
+                      "Understand the business problem",
+                      "Analyze data and find patterns",
+                      "Use AI to research, automate and improve",
+                    ].map((step, idx) => (
+                      <motion.div
+                        key={step}
+                        className="rounded-xl border border-border/60 bg-card/60 p-4"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.5 + idx * 0.15 }}
+                      >
+                        <span className="text-primary">0{idx + 1}</span> {step}
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
+            </TiltCard>
           </motion.div>
         </section>
 
@@ -346,50 +375,54 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, scale: 0.85, y: 30 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.85, y: -10 }}
+                  transition={{ duration: 0.45, delay: Math.min(index, 4) * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                  className="group relative"
                 >
-                  <Card className="h-full flex flex-col bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 transition-colors group">
-                    <CardHeader className="space-y-4">
-                      <div className="flex flex-wrap gap-2">
-                        {project.techStack.map((tech) => (
-                          <span key={tech} className="text-[11px] uppercase tracking-[0.2em] text-primary bg-primary/10 rounded-full px-3 py-1">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="flex items-start justify-between gap-4">
-                        <CardTitle className="font-heading text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                        {isUsableLink(project.github) ? (
-                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label={`${project.title} GitHub repository`}>
-                            <Github className="w-5 h-5" />
-                          </a>
-                        ) : (
-                          <span className="text-muted-foreground/40" title="GitHub link can be added later">
-                            <Github className="w-5 h-5" />
-                          </span>
-                        )}
-                      </div>
-                    </CardHeader>
-                    <CardContent className="flex-1">
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {project.description}
-                      </p>
-                    </CardContent>
-                    <CardFooter className="mt-auto pt-5 border-t border-border/30">
-                      {project.impact ? (
-                        <div className="rounded-2xl border border-border/60 bg-primary/10 px-4 py-3 text-sm text-primary w-full">
-                          {project.impact}
+                  <TiltCard className="h-full relative rounded-xl">
+                    <Card className="h-full flex flex-col bg-card/40 backdrop-blur-xl border-border/50 hover:border-primary/60 transition-colors relative overflow-hidden">
+                      <div className="pointer-events-none absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <CardHeader className="space-y-4">
+                        <div className="flex flex-wrap gap-2">
+                          {project.techStack.map((tech) => (
+                            <span key={tech} className="text-[11px] uppercase tracking-[0.2em] text-primary bg-primary/10 rounded-full px-3 py-1 border border-primary/20">
+                              {tech}
+                            </span>
+                          ))}
                         </div>
-                      ) : null}
-                    </CardFooter>
-                  </Card>
+                        <div className="flex items-start justify-between gap-4">
+                          <CardTitle className="font-heading text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                          {isUsableLink(project.github) ? (
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label={`${project.title} GitHub repository`}>
+                              <Github className="w-5 h-5" />
+                            </a>
+                          ) : (
+                            <span className="text-muted-foreground/40" title="GitHub link can be added later">
+                              <Github className="w-5 h-5" />
+                            </span>
+                          )}
+                        </div>
+                      </CardHeader>
+                      <CardContent className="flex-1">
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {project.description}
+                        </p>
+                      </CardContent>
+                      <CardFooter className="mt-auto pt-5 border-t border-border/30">
+                        {project.impact ? (
+                          <div className="rounded-2xl border border-border/60 bg-primary/10 px-4 py-3 text-sm text-primary w-full">
+                            {project.impact}
+                          </div>
+                        ) : null}
+                      </CardFooter>
+                    </Card>
+                  </TiltCard>
                 </motion.div>
               ))}
             </AnimatePresence>

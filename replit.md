@@ -28,6 +28,6 @@ See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and pa
 
 ## Artifacts
 
-- **`artifacts/ganesh-portfolio`** (`react-vite`, served at `/`) — Recruiter-focused single-page portfolio for Ganesh Pawar (Data Analyst / ML Engineer / AI Automation Builder). Imported from a Vercel/v0 export. Stack: React 18 + Vite + Tailwind v4 + shadcn/ui + wouter + Framer Motion. All content is client-side; portfolio data lives in `src/data/portfolio.ts`. No backend or database used.
+- **`artifacts/ganesh-portfolio`** (`react-vite`, served at `/`) — Recruiter-focused single-page portfolio for Ganesh Pawar (Data Analyst / ML Engineer / AI Automation Builder). Imported from a Vercel/v0 export. Stack: React 18 + Vite + Tailwind v4 + shadcn/ui + wouter + Framer Motion + Three.js (`@react-three/fiber`, `@react-three/drei`). Animated WebGL background (floating distorted icosahedra, wireframe torus knot, particle field, mouse-parallax camera) lives in `src/components/Scene3D.tsx` with WebGL feature detection + ErrorBoundary + CSS gradient fallback. Project cards use `TiltCard` for 3D mouse-tilt and `CursorSpotlight` for a global mouse-follow glow. All content is client-side; portfolio data lives in `src/data/portfolio.ts`. No backend or database used.
 - **`artifacts/api-server`** — Pre-existing scaffold; not used by the portfolio.
 - **`artifacts/mockup-sandbox`** — Pre-existing scaffold for canvas mockups.

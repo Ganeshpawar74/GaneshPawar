@@ -49,6 +49,15 @@ export const certifications = [
 
 export const projects: Project[] = [
   {
+    id: "healthverse-ai",
+    title: "HealthVerse AI",
+    description: "AI-powered medical report analysis system using deep learning to detect diseases from MRI and X-ray images, including brain tumor classification and pneumonia detection. Integrated Generative AI and RAG to convert complex medical reports into simple, patient-friendly explanations with contextual insights.",
+    category: "Machine Learning",
+    techStack: ["Deep Learning", "GenAI", "RAG", "Python"],
+    impact: "Impact: 97.6% accuracy on medical image classification",
+    github: "https://github.com/Ganeshpawar74",
+  },
+  {
     id: "road-accident",
     title: "Road Accident Dashboard",
     description: "Power BI dashboard built to identify high-risk zones, compare accident patterns by location and time, and support data-driven road safety decisions.",
