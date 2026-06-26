@@ -7,7 +7,7 @@ const ROLES = [
   "AI/ML Systems Engineer",
   "Generative AI Specialist",
   "LLMOps Architect",
-  "Deep Learning Developer"
+  "Machine Learning Developer"
 ];
 
 export function Hero() {
