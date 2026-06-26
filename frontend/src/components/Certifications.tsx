@@ -34,7 +34,7 @@ export function Certifications() {
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-b from-[#0a0a0f] to-[#0a0a0f]">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-screen-2xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -46,7 +46,7 @@ export function Certifications() {
         </div>
 
         {/* Credentials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto text-left">
           {credentials.map((cred, idx) => {
             const Icon = cred.icon;
             return (

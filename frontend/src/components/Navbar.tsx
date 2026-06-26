@@ -42,7 +42,7 @@ export function Navbar() {
         style={{ width: `${scrollProgress}%` }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-screen-2xl mx-auto px-6 flex justify-between items-center">
         {/* Brand/Logo */}
         <a href="#home" className="flex items-center gap-1.5 font-display font-semibold text-lg tracking-tight hover:opacity-80 transition-opacity">
           <Terminal className="w-4 h-4 text-accent-blue" />

@@ -25,7 +25,7 @@ export function Projects() {
       <div className="absolute top-1/3 left-0 w-80 h-80 bg-accent-blue/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-accent-purple/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-screen-2xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-16">

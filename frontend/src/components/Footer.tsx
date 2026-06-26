@@ -6,7 +6,7 @@ export function Footer() {
 
   return (
     <footer className="py-12 border-t border-white/5 bg-[#0a0a0f] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10 text-left">
+      <div className="max-w-screen-2xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10 text-left">
         
         {/* Left Side Info */}
         <div className="space-y-2">

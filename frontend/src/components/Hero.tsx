@@ -74,7 +74,7 @@ export function Hero() {
         <div className="w-[1px] h-20 bg-white/10" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-20">
+      <div className="max-w-screen-2xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-20">
         {/* Left Side: Info */}
         <div className="lg:col-span-8 flex flex-col items-start text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent-blue/20 bg-accent-blue/5 text-xs text-accent-blue font-semibold uppercase tracking-wider mb-6">

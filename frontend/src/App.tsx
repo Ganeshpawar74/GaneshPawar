@@ -21,7 +21,7 @@ function App() {
       <Navbar />
 
       {/* Main Container Layout */}
-      <main className="max-w-7xl mx-auto px-4 md:px-8">
+      <main className="max-w-screen-2xl mx-auto px-4 md:px-8">
         <Hero />
         <About />
         <Skills />

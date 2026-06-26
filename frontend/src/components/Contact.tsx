@@ -37,7 +37,7 @@ export function Contact() {
       {/* Decorative top grid */}
       <div className="absolute inset-0 grid-bg-overlay opacity-15 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-screen-2xl mx-auto px-6 relative z-10">
         
         {/* Title */}
         <div className="text-center mb-16">
@@ -51,7 +51,7 @@ export function Contact() {
           <div className="w-16 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-7xl mx-auto items-start">
           
           {/* Left Column: Coordinates / Mumbai Glow Info */}
           <div className="lg:col-span-5 text-left space-y-8">

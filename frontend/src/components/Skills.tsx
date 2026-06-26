@@ -20,7 +20,7 @@ export function Skills() {
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[350px] h-[350px] bg-accent-blue/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-[250px] h-[250px] bg-accent-purple/5 rounded-full blur-[80px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-screen-2xl mx-auto px-6 relative z-10">
         {/* Title */}
         <div className="text-center mb-16">
           <h2 className="font-display font-bold text-3xl md:text-5xl text-white tracking-tight flex items-center justify-center gap-3">
@@ -56,7 +56,7 @@ export function Skills() {
         </div>
 
         {/* Skill Cards Grid (No slider bars) */}
-        <div className="max-w-5xl mx-auto mb-16">
+        <div className="max-w-7xl mx-auto mb-16">
           <h3 className="font-display text-white font-semibold text-xl mb-8 border-b border-white/5 pb-4 flex justify-between items-center text-left">
             <span>{activeCategory?.title} Expertise</span>
             <span className="text-xs text-text-secondary font-mono">Core Competence Matrix</span>
@@ -97,7 +97,7 @@ export function Skills() {
           <p className="text-xs text-text-secondary font-mono uppercase tracking-wider mb-6">
             Technologies & Tools Stack
           </p>
-          <div className="flex flex-wrap justify-center gap-3.5 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3.5 max-w-5xl mx-auto">
             {techLogoCloud.map((tag, idx) => (
               <span
                 key={idx}

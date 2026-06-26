@@ -22,7 +22,7 @@ export function Metrics() {
     <section className="py-24 relative overflow-hidden bg-card-bg/25 border-y border-white/5">
       <div className="absolute inset-0 grid-bg-overlay opacity-15 pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-screen-2xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -33,7 +33,7 @@ export function Metrics() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
