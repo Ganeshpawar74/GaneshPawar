@@ -12,11 +12,28 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
   {
+    id: "sama",
+    role: "Backend Developer (Python) - GenAI & LLM Applications",
+    company: "Sama Digital Foundation",
+    location: "Remote",
+    duration: "Jun 2026 – Present",
+    points: [
+      "Design, develop, and maintain scalable backend applications using Python and FastAPI.",
+      "Build and optimize RESTful APIs with seamless integrations for third-party services and AI/LLM providers.",
+      "Design and manage databases, write efficient SQL queries, and optimize application performance.",
+      "Build backend systems supporting AI-powered features such as chatbots, agents, and document processing workflows.",
+      "Collaborate across frontend, product, and AI engineering teams to deploy, monitor, and maintain production systems."
+    ],
+    impactTags: ["Python / FastAPI", "GenAI & LLM", "SQL & Databases", "API Integrations"],
+    isCurrent: true,
+    type: "work"
+  },
+  {
     id: "sunitiq",
     role: "Machine Learning Intern",
     company: "Sunitiq",
     location: "Remote",
-    duration: "Apr 2026 – Present",
+    duration: "Apr 2026 – Jun 2026",
     points: [
       "End-to-end predictive analytics modeling using PyTorch and Scikit-learn for regression and classification tasks.",
       "Engineered robust feature engineering pipelines focusing on scaling, encoding, imputing, and custom feature selection.",
@@ -25,7 +42,7 @@ export const experiences: ExperienceItem[] = [
       "Delivered production-grade features in agile sprint cycles using GitHub Copilot acceleration."
     ],
     impactTags: ["40% Efficiency Gain", "30% Faster Iterations", "Agile/Scrum"],
-    isCurrent: true,
+    isCurrent: false,
     type: "work"
   },
   {

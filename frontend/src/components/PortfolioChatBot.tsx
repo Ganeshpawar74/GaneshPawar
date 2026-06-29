@@ -66,12 +66,15 @@ const getLocalResponse = (query: string): string => {
       `• **Data & Analytics:** SQL, Power BI (DAX), ETL Pipeline Development.`;
   }
 
-  if (q.includes("experience") || q.includes("intern") || q.includes("sunitiq") || q.includes("internhack")) {
-    return `Ganesh has completed two key internships:\n\n` +
-      `1. **Machine Learning Intern at Sunitiq** (Apr 2026 – Present):\n` +
+  if (q.includes("experience") || q.includes("intern") || q.includes("sunitiq") || q.includes("internhack") || q.includes("sama")) {
+    return `Ganesh has the following professional experience:\n\n` +
+      `1. **Backend Developer Intern (Python) - GenAI & LLM Applications at Sama Digital Foundation** (Jun 2026 – Present):\n` +
+      `• Building scalable Python & FastAPI backend applications, integrating third-party APIs and AI/LLM providers.\n` +
+      `• Designing databases, writing efficient SQL queries, and constructing backend systems for AI features (chatbots, agents, document workflows).\n\n` +
+      `2. **Machine Learning Intern at Sunitiq** (Apr 2026 – Jun 2026):\n` +
       `• Automated feature engineering pipelines and hyperparameter tuning in PyTorch/Scikit-learn, yielding a **40% reduction in manual analysis**.\n` +
       `• Set up experiment tracking, speeding up iteration cycles by **30%**.\n\n` +
-      `2. **Data Analytics Intern at InternHack** (Jan 2026 – May 2026):\n` +
+      `3. **Data Analytics Intern at InternHack** (Jan 2026 – May 2026):\n` +
       `• Built Python/SQL ETL data pipelines & Power BI dashboards.\n` +
       `• Conducted EDA on 50,000+ transaction records to isolate operational anomalies.`;
   }

@@ -13,7 +13,7 @@ export function About() {
   const facts = [
     { icon: MapPin, label: "Location", value: "Mumbai, India", color: "text-accent-blue" },
     { icon: GraduationCap, label: "Education", value: "BE CS (AI & ML) — 2026 Graduate", color: "text-accent-purple" },
-    { icon: Briefcase, label: "Current Role", value: "ML Intern @ Sunitiq", color: "text-accent-green" },
+    { icon: Briefcase, label: "Current Role", value: "Backend Developer @ Sama", color: "text-accent-green" },
     { icon: Zap, label: "Availability", value: "Immediate Joiner", color: "text-amber-400" },
     { icon: Globe, label: "Open to", value: "Remote / Hybrid / Relocation", color: "text-blue-400" }
   ];
